@@ -1,0 +1,11 @@
+docker build -t sshd .
+docker run -d -p 49154:22 --name test_sshd sshd
+
+// ssh to container
+ssh root@localhost -p 49154
+// pass : screencast
+
+//cleanup
+docker container stop test_sshd
+docker container rm test_sshd
+docker image rm sshd
